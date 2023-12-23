@@ -1,7 +1,7 @@
-<div class="container flex bg-[#139BD1] rounded-[22px]">
+<div class="container flex bg-[#139BD1] rounded-[22px] ">
   <div class="wrapper px-6 pt-8 pb-[30px] flex items-center flex-col	">
-    <div class="main-title text-center max-w-[572px] p-[1.25rem] pr-[4.5625rem] pb-1.875 pl-[4.5625rem]">
-      <h1 class="text-white text-center font-jockey-one text-4xl font-normal leading-12 pb-6">Pokémons em destaque!</h1>
+    <div class="main-title text-center max-w-[572px] p-[1.25rem] pr-[4.5625rem] pb-1.875 pl-[4.5625rem] flex flex-col gap-6">
+      <h1 class="text-white text-center font-jockey-one text-4xl font-normal leading-12">Pokémons em destaque!</h1>
       <div class="sub-title text-white text-center font-inter text-base font-normal leading-[25.6px]" >
         Lorem ipsum dolor sit amet.
         Eos eligendi Quis eum consequatur
@@ -11,27 +11,33 @@
         tempora itaque!
       </div>
     </div>
-    <div class="card-highlight flex w-905 h-199 flex-shrink-0 rounded-[24px] bg-white shadow-md p-[19px] pr-7" >
-      <div class="card-image w-[12.5625rem] h-[10.0625rem] rounded-3xl shadow-md flex justify-center items-center ">
-        <img src="../../assets/poke_img/pikachu.png">
-      </div>
-      <div class="description-image pl-[1.875rem]">
-        <div class="content-wrapper flex justify-between">
-          <div class="card-title text-[2.60625rem] font-jockey-one">Pikachu</div>
-          <div class="see-more flex items-center justify-center w-106 ">
-            <button class="see-more-button font-medium text-base w-[6.625rem] gap-10 rounded-[12px] leading-[25.8px] bg-[#0070E0] text-white p-[10px] font-inter ">Ver mais</button>
-          </div>
+    <div class="section-card pt-[20px] flex flex-col gap-6 pb-8">
+      <div class="card-highlight flex w-905 h-199 flex-shrink-0 rounded-[24px]
+       bg-white shadow-md p-[19px] pr-7" *ngFor="let card of this.highlightPokemon">
+        <div class="card-image w-[12.5625rem] h-[10.0625rem] rounded-3xl shadow-md flex justify-center items-center ">
+          <img [src]="card.image">
         </div>
+        <div class="description-image pl-[1.875rem]">
+          <div class="content-wrapper flex justify-between">
+            <div class="card-title text-[2.60625rem] font-jockey-one">{{card.name | firstLetterUp}}</div>
+            <div class="see-more flex items-center justify-center w-106 ">
+              <button class="see-more-button font-medium text-base w-[6.625rem] gap-10 rounded-[12px] leading-[25.8px] bg-[#0070E0] text-white p-[10px] font-inter ">Ver mais</button>
+            </div>
+          </div>
 
-        <div class="card-description w-[39.25rem] flex justify-center content-center flex-no-wrap flex-col ">
-          Lorem ipsum dolor sit amet.
-          Eos eligendi Quis eum consequatur
-          nesciunt non blanditiis voluptas
-          et reprehenderit delectus. Ad facilis
-          velit et quos incidunt et aspernatur
-          ipsa id tempora</div>
+          <div class="card-description w-[39.25rem] flex justify-center content-center flex-no-wrap flex-col ">
+            Lorem ipsum dolor sit amet.
+            Eos eligendi Quis eum consequatur
+            nesciunt non blanditiis voluptas
+            et reprehenderit delectus. Ad facilis
+            velit et quos incidunt et aspernatur
+            ipsa id tempora</div>
+        </div>
       </div>
+
     </div>
-    <div class="see-all">Ver todos</div>
+    <div class="see-all w-full flex justify-end" >
+      <a class="text-white font-inter font-bold text-base leading-[25.6px] border-b-2 cursor-pointer">Ver todos</a>
+    </div>
   </div>
 </div>
