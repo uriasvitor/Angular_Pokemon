@@ -1,7 +1,7 @@
 <div class="flex bg-[#139BD1] rounded-[22px] md:w-30 max-sm:rounded-none">
-  <div class="wrapper px-6 pt-8 pb-[30px] min-lg:max-w-3xl  flex items-center flex-col	">
-    <div class="main-title text-center max-w-[572px] p-[1.25rem] pr-[4.5625rem] pb-1.875 pl-[4.5625rem] flex flex-col gap-6">
-      <h1 class="text-white text-center font-jockey-one text-4xl font-normal leading-12">Pokémons em destaque!</h1>
+  <div class="wrapper px-6 pt-8 pb-[30px] min-lg:max-w-3xl flex items-center flex-col">
+    <div class="main-title text-center max-w-[572px] p-5 pr-[4.5625rem] pb-1.875 pl-[4.5625rem] flex flex-col gap-6 max-sm:p-0">
+      <h1 class="text-white text-center font-jockey-one text-4xl font-normal leading-12">Pokémons <span  class="max-sm:grid">em destaque!</span></h1>
       <div class="sub-title text-white text-center font-inter text-base font-normal leading-[25.6px]" >
         Lorem ipsum dolor sit amet.
         Eos eligendi Quis eum consequatur
@@ -11,8 +11,8 @@
         tempora itaque!
       </div>
     </div>
-    <div class="section-card pt-[20px] flex flex-col gap-6 pb-8">
-      <div class="card-highlight flex w-905 h-199 flex-shrink-0 rounded-[24px]
+    <div class="section-card pt-[20px] flex flex-col gap-6 pb-8 max-sm:py-14" >
+      <div class="card-highlight flex w-905 flex-shrink-0 rounded-[24px]  max-sm:px-6 max-sm:py-6
        bg-white shadow-md p-[19px] pr-7 max-sm:flex-col max-sm:items-center max-sm:justify-center max-sm:gap-6" *ngFor="let card of this.highlightPokemon">
         <div class="card-image w-[12.5625rem] h-[10.0625rem] max-lg:min-w-40  rounded-3xl shadow-md flex justify-center items-center ">
           <img class="h-full" [src]="card.image">
@@ -37,7 +37,7 @@
 
     </div>
     <div class="see-all w-full flex justify-end max-sm:justify-center" >
-      <a class="text-white font-inter font-bold text-base leading-[25.6px] border-b-2 cursor-pointer">Ver todos</a>
+      <a class="text-white font-inter font-bold text-base leading-[25.6px] border-b-2 cursor-pointer max-sm:tracking-wide max-sm:text-xl">Ver todos</a>
     </div>
   </div>
 </div>

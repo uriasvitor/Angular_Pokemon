@@ -1,10 +1,16 @@
-<header class="w-full h-px-100">
-  <nav class="flex items-center justify-between pt-[18.63px] pr-[19.99px] pb-[18.37px] pl-[40px]">
-    <div>
-      <img src="../../assets/logo/logo.png" alt="logo">
+<header class="w-full">
+  <nav class="flex items-center justify-between pt-[18.63px] pr-5 pb-[18.37px] pl-10 h-24 gap-5 max-sm:h-28 max-md:p-7">
+    <div class="logo">
+      <img class="logo-desktop max-sm:hidden" src="../../assets/logo/logo.png" alt="logo">
+      <img class="logo-mob sm:hidden" src="../../assets/logo/logo_mobile.png" alt="logo mob">
     </div>
-    <div class="flex gap-[39px]">
-      <ul class="flex items-center gap-[39px]">
+    <div class="flex gap-10 items-center">
+      <!-- Ícone do sanduíche para dispositivos móveis -->
+      <button (click)="toggleMobileMenu()" class="sm:hidden focus:outline-none">
+        <img src="../../assets/icon/icon.png" alt="menu">
+      </button>
+
+      <ul class="flex items-center gap-10 hidden sm:flex">
         <li>
           <a class="hover:text-gray-500 max-h-20 text-black font-inter text-base font-normal leading-[18.76px]" href="#">TV Pokémon</a>
         </li>
@@ -15,10 +21,25 @@
           <a class="hover:text-gray-500 max-h-20 text-black font-inter text-base font-normal leading-[18.76px]" href="#">Loja</a>
         </li>
       </ul>
-      <div>
-        <button class="bg-[#0070E0] font-sans text-white rounded-[12px] hover:bg-[#295c8f] text-[13.781px]
-        pt-[12px] pr-[23.56px] pb-[12px] pl-[24px] justify-center items-center self-stretch font-medium leading-[18.76px]">Minha conta</button>
+      <div class="account hidden sm:flex">
+        <button class="bg-[#0070E0] font-sans text-white rounded-xl hover:bg-[#295c8f] text-[13.781px]
+          py-3 px-6 justify-center items-center self-stretch font-medium leading-[18.76px]">Minha conta</button>
       </div>
     </div>
   </nav>
 </header>
+
+<!-- Menu móvel -->
+<div id="mobile-menu" class="lg:hidden absolute top-24 left-0 right-0 bg-white z-10 hidden">
+  <ul class="flex flex-col items-center gap-5 pt-5">
+    <li>
+      <a class="hover:text-gray-500 text-black font-inter text-base font-normal" href="#">TV Pokémon</a>
+    </li>
+    <li>
+      <a class="hover:text-gray-500 text-black font-inter text-base font-normal" href="#">Pokédex</a>
+    </li>
+    <li>
+      <a class="hover:text-gray-500 text-black font-inter text-base font-normal" href="#">Loja</a>
+    </li>
+  </ul>
+</div>
