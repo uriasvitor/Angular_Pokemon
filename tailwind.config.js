@@ -6,6 +6,7 @@ module.exports = {
       'jockey-one':['Jockey One','sans-serif']
     },
     screens: {
+      'smm': '500px',
       'sm': '676px',
       'md': '880px',
       'lg': '1024px',
