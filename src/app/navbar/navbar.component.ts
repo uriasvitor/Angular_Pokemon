@@ -6,8 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  isMobileMenuOpen = false;
+
   toggleMobileMenu(): void {
     const mobileMenu = document.getElementById('mobile-menu');
     mobileMenu?.classList.toggle('hidden');
+    mobileMenu?.classList.toggle('full-screen');
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 }

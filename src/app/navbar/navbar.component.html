@@ -1,5 +1,5 @@
-<header class="w-full">
-  <nav class="flex items-center justify-between pt-[18.63px] pr-5 pb-[18.37px] pl-10 h-24 gap-5 max-sm:h-28 max-md:p-7">
+<header class="w-full h-24 bg-white max-sm:h-28 ">
+  <nav class="w-full flex items-center justify-between pt-[18.63px] pr-5 pb-[18.37px] pl-10 h-24 gap-5 max-sm:h-28 max-md:p-7 fixed bg-white">
     <div class="logo">
       <img class="logo-desktop max-sm:hidden" src="../../assets/logo/logo.png" alt="logo">
       <img class="logo-mob sm:hidden" src="../../assets/logo/logo_mobile.png" alt="logo mob">
@@ -7,10 +7,33 @@
     <div class="flex gap-10 items-center">
       <!-- Ícone do sanduíche para dispositivos móveis -->
       <button (click)="toggleMobileMenu()" class="sm:hidden focus:outline-none">
-        <img src="../../assets/icon/icon.png" alt="menu">
+        <ng-container *ngIf="!isMobileMenuOpen; else closeIcon">
+          <img src="../../assets/icon/menu-icon.png" alt="menu">
+        </ng-container>
+        <ng-template #closeIcon>
+          <img src="../../assets/icon/close-icon.png" alt="close">
+        </ng-template>
       </button>
+      <!-- Menu móvel -->
+      <div id="mobile-menu" class="lg:hidden absolute top-24 left-0 right-0 bg-white z-10 hidden h-screen px-6">
+        <ul class="flex flex-col items-start gap-5 pt-5">
+          <li>
+            <a class="hover:text-gray-500 text-black font-inter text-base font-normal" href="#">TV Pokémon</a>
+          </li>
+          <li>
+            <a class="hover:text-gray-500 text-black font-inter text-base font-normal" href="#">Pokédex</a>
+          </li>
+          <li>
+            <a class="hover:text-gray-500 text-black font-inter text-base font-normal" href="#">Loja</a>
+          </li>
+        </ul>
+        <div class="mobile-account sm:flex">
+          <button class="bg-[#0070E0] font-sans text-white rounded-xl hover:bg-[#295c8f] text-[13.781px]
+            py-3 px-6 justify-center items-center self-stretch font-medium leading-[18.76px]">Minha conta</button>
+        </div>
+      </div>
 
-      <ul class="flex items-center gap-10 hidden sm:flex">
+      <ul class="desktop-menu flex items-center gap-10 hidden sm:flex">
         <li>
           <a class="hover:text-gray-500 max-h-20 text-black font-inter text-base font-normal leading-[18.76px]" href="#">TV Pokémon</a>
         </li>
@@ -29,17 +52,4 @@
   </nav>
 </header>
 
-<!-- Menu móvel -->
-<div id="mobile-menu" class="lg:hidden absolute top-24 left-0 right-0 bg-white z-10 hidden">
-  <ul class="flex flex-col items-center gap-5 pt-5">
-    <li>
-      <a class="hover:text-gray-500 text-black font-inter text-base font-normal" href="#">TV Pokémon</a>
-    </li>
-    <li>
-      <a class="hover:text-gray-500 text-black font-inter text-base font-normal" href="#">Pokédex</a>
-    </li>
-    <li>
-      <a class="hover:text-gray-500 text-black font-inter text-base font-normal" href="#">Loja</a>
-    </li>
-  </ul>
-</div>
+
