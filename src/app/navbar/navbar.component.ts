@@ -7,12 +7,12 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   isMobileMenuOpen = false;
-
+  routerLinkActive="text-indigo-400"
   toggleMobileMenu(): void {
     const mobileMenu = document.getElementById('mobile-menu');
-    const navbar = document.getElementsByClassName('navbar').item(0);
+    const header = document.getElementById('header');
     mobileMenu?.classList.toggle('hidden');
-    navbar?.classList.toggle('menu-is-open');
+    header?.classList.toggle('menu-is-open');
     mobileMenu?.classList.toggle('full-screen');
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }

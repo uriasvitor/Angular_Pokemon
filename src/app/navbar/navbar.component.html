@@ -1,55 +1,54 @@
-<header class="w-full h-24 bg-white max-sm:h-28 ">
-  <nav class=" navbar w-full flex items-center justify-between pt-[18.63px] pr-5 pb-[18.37px] pl-10 h-24 gap-5 max-sm:h-28 max-md:p-7 fixed bg-white">
+<header  id="header" class="w-full h-24 bg-white max-sm:h-28 ">
+  <nav class="w-full flex items-center justify-between pt-[18.63px] pr-5 pb-[18.37px] pl-10 h-24 gap-5 max-sm:h-28 max-md:p-7 fixed bg-white">
     <div class="logo">
-      <img class="logo-desktop max-sm:hidden" src="../../assets/logo/logo.png" alt="logo">
-      <img class="logo-mob sm:hidden" src="../../assets/logo/logo_mobile.png" alt="logo mob">
+      <img class="logo-desktop max-sm:hidden cursor-pointer" src="../../assets/logo/logo.png" alt="logo"  routerLink="/">
+      <img class="logo-mob sm:hidden cursor-pointer" src="../../assets/logo/logo_mobile.png" alt="logo mob" routerLink="/">
     </div>
     <div class="flex gap-10 items-center">
-      <!-- Ícone do sanduíche para dispositivos móveis -->
+
       <button (click)="toggleMobileMenu()" class="sm:hidden focus:outline-none">
         <ng-container *ngIf="!isMobileMenuOpen; else closeIcon">
           <img src="../../assets/icon/menu-icon.png" alt="menu">
         </ng-container>
         <ng-template #closeIcon>
-          <img src="../../assets/icon/close-icon.png" alt="close">
+          <img src="../../assets/icon/close-icon.png" alt="close menu">
         </ng-template>
       </button>
-      <!-- Menu móvel -->
+
       <div id="mobile-menu" class="lg:hidden absolute top-28 left-0 right-0 bg-white z-10 hidden h-screen ">
         <div class="mobile-wrapper-menu grid px-6 h-full">
           <ul class="flex flex-col items-start gap-5 pt-5">
             <li class="pb-3 pl-3 border-b-2 border-solid border-blue-500 w-full">
-              <a class="hover:text-gray-700 text-[#696969] font-inter text-base font-normal" href="#">TV Pokémon</a>
+              <a class="text-[#696969] hover:text-gray-700 text-base font-inter font-normal" (click)="toggleMobileMenu()" routerLinkActive="text-blue-500" [routerLinkActiveOptions]="{ exact: true }" routerLink="tv">TV Pokémon</a>
             </li>
             <li class="pb-3 pl-3 border-b-2 border-solid border-blue-500 w-full">
-              <a class="hover:text-gray-700 text-[#696969] font-inter text-base font-normal"  href="#">Pokédex</a>
+              <a class="text-[#696969] hover:text-gray-700 text-base font-inter font-normal" (click)="toggleMobileMenu()" routerLinkActive="text-blue-500" [routerLinkActiveOptions]="{ exact: true }" routerLink="library">Pokédex</a>
             </li>
             <li class="pb-3 pl-3 border-b-2 border-solid border-blue-500 w-full">
-              <a class="hover:text-gray-700 text-[#696969] font-inter text-base font-normal" href="#">Loja</a>
+              <a class="text-[#696969] hover:text-gray-700 text-base font-inter font-normal" (click)="toggleMobileMenu()" routerLinkActive="text-blue-500" [routerLinkActiveOptions]="{ exact: true }" routerLink="shop">Loja</a>
             </li>
           </ul>
 
           <div class="mobile-account sm:flex w-full">
-            <button class="bg-[#0070E0] font-sans text-white rounded-xl hover:bg-[#295c8f] text-base
-              py-3 px-6 justify-center items-center self-stretch font-normal leading-[18.76px] h-11 w-full">Minha conta</button>
+            <button class="bg-[#0070E0] text-white font-sans rounded-xl hover:bgtext-base -[#295c8f] py-3 px-6 justify-center items-center self-stretch font-normal leading-[18.76px] h-11 w-full">Minha conta</button>
           </div>
         </div>
 
-        <div class="footer bg-white text-[#0070E0] h-24 max-sm:h-9 max-sm:text-xs flex items-center justify-center text-white font-inter text-2xl">
+        <div class="footer flex items-center justify-center h-24 bg-white text-[#0070E0] max-sm:h-9 max-sm:text-xs font-inter text-2xl">
           Teste | Opah 2023 | Urias Vitor
         </div>
 
       </div>
 
-      <ul class="desktop-menu flex items-center gap-10 hidden sm:flex">
+      <ul class="desktop-menu items-center gap-10 hidden sm:flex">
         <li>
-          <a class="hover:text-gray-500 max-h-20 text-black font-inter text-base font-normal leading-[18.76px]" href="#">TV Pokémon</a>
+          <a class="hover:text-gray-500 max-h-20 text-black text-base font-inter font-normal leading-[18.76px]" routerLinkActive="text-blue-500" [routerLinkActiveOptions]="{ exact: true }" routerLink="tv">TV Pokémon</a>
         </li>
         <li>
-          <a class="hover:text-gray-500 max-h-20 text-black font-inter text-base font-normal leading-[18.76px]" href="#">Pokédex</a>
+          <a class="hover:text-gray-500 max-h-20 text-black text-base font-inter font-normal leading-[18.76px]" routerLinkActive="text-blue-500" [routerLinkActiveOptions]="{ exact: true }" routerLink="library">Pokédex</a>
         </li>
         <li>
-          <a class="hover:text-gray-500 max-h-20 text-black font-inter text-base font-normal leading-[18.76px]" href="#">Loja</a>
+          <a class="hover:text-gray-500 max-h-20 text-black text-base font-inter font-normal leading-[18.76px]" routerLinkActive="text-blue-500" [routerLinkActiveOptions]="{ exact: true }" routerLink="shop">Loja</a>
         </li>
       </ul>
 

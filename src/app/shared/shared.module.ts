@@ -1,14 +1,18 @@
 import { NgModule } from "@angular/core";
-import { firstLetterCasePipe } from "./pipes/firstLetterCase,pipe";
+import { firstLetterCasePipe } from "./pipes/firstLetterCase.pipe";
+import { replaceScapePipe } from "./pipes/replaceScape.pipe";
 
 @NgModule({
   declarations: [
-    firstLetterCasePipe
+    firstLetterCasePipe,
+    replaceScapePipe
   ],
   imports: [
   ],
   exports:[
-    firstLetterCasePipe
+    firstLetterCasePipe,
+    replaceScapePipe
   ]
 })
+
 export class SharedModule { }

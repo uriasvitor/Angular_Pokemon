@@ -12,10 +12,10 @@ export class HighlightComponent implements OnInit{
   constructor(public resourceService:ResourceService){}
 
   ngOnInit(): void {
-    this.getHighlightPokemon()
+    this.getHighlightsPokemons()
   }
 
-  getHighlightPokemon(){
+  getHighlightsPokemons(){
     this.resourceService.getHighlightPokemons().subscribe({
       next:(res)=>{
         this.highlightPokemon = res

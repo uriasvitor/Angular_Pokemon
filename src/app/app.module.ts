@@ -9,6 +9,9 @@ import { FooterComponent } from './footer/footer.component';
 import { HighlightComponent } from './highlight/highlight.component';
 import {  HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
+import { ChannelComponent } from './channel/channel.component';
+import { LibraryComponent } from './library/library.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { SharedModule } from './shared/shared.module';
     HomeComponent,
     FooterComponent,
     HighlightComponent,
+    ChannelComponent,
+    LibraryComponent,
+    DetailsComponent,
 
   ],
   imports: [
