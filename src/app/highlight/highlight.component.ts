@@ -1,4 +1,4 @@
-import { PokemonDetails, PokemonList, ResourceService } from './../services/Resource.service';
+import { PokemonDetails, ResourceService } from './../services/Resource.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HighlightComponent implements OnInit{
   highlightPokemon:PokemonDetails[] | undefined;
-
+  hightLightLimit:number = 3
   constructor(public resourceService:ResourceService){}
 
   ngOnInit(): void {
@@ -16,10 +16,9 @@ export class HighlightComponent implements OnInit{
   }
 
   getHighlightsPokemons(){
-    this.resourceService.getHighlightPokemons().subscribe({
+    this.resourceService.getPokemonsDetails(this.hightLightLimit).subscribe({
       next:(res)=>{
         this.highlightPokemon = res
-        console.log(this.highlightPokemon)
       }
     })
   }

@@ -1,0 +1,61 @@
+
+.card{
+  &.water{
+    background-color: #0096c7;
+  }
+
+  &.fire{
+    background-color: #c35d4c;
+  }
+
+  &.grass{
+    background-color: #71ad7d;;
+  }
+
+  &.normal{
+    background-color: #ffd000;
+  }
+
+  &.bug{
+    background-color: #aacc00;
+  }
+
+  &.Poison{
+    background-color: #363537;
+  }
+
+  .type{
+
+    &.water{
+      background-color: #ade8f4;
+      color: #0096c7;
+    }
+
+    &.fire{
+      background-color: #fadf8e;
+      color: #c35d4c;
+    }
+
+    &.grass{
+      background-color: #22c55e;
+      color: #fff;
+    }
+
+    &.normal{
+      background-color: #fff;
+      color: #000;
+    }
+
+    &.bug{
+      background-color: #dddf00;
+      color: #000;
+    }
+
+    &.Poison{
+      background-color: #363537;
+    }
+
+  }
+
+}
+

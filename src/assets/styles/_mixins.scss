@@ -1,0 +1,31 @@
+$small: 676;
+$medium:1024px;
+$brake:800;
+$large:1980;
+
+/*Mobile*/
+
+@mixin for-small{
+  @media screen and (max-width:(($small + 1)+"px")){
+    @content;
+  }
+}
+
+@mixin for-medium{
+  @media screen and (max-width:(($medium + 1)+"px")){
+    @content;
+  }
+}
+
+@mixin for-brake{
+  @media screen and (max-width:(($brake + 1)+"px")){
+    @content;
+  }
+}
+
+
+@mixin for-large{
+  @media screen and (max-width:(($large + 1)+"px")){
+    @content;
+  }
+}

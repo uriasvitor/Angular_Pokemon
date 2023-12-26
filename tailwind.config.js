@@ -12,8 +12,9 @@ module.exports = {
       'lg': '1024px',
       'xl': '1380px',
       '2xl': '1440px',
-
+      '2x2': '1900px',
     },
+    container: false,
     extend: {},
   },
   plugins: [],

@@ -1,3 +1,26 @@
-<div class="container">
-
+<div class="pokemon-card bg-[#fffc11]">
+  <div class="container mx-auto">
+    <div class="content grid grid-cols-4 gap-10 p-8 justify-items-center 2x2:grid-cols-5 max-2xl:grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-2 max-md:gap-14 max-sm:grid-cols-1 max-sm:justify-center">
+      <div class="card w-80 max-sm:w-full p-4 rounded-2xl bg-yellow-400 cursor-pointer hover:bg-yellow-500 shadow-md" *ngFor="let card of cardsList; let i = index" [ngClass]="card.types[0].name">
+        <div class="wrapper flex flex-col gap-5">
+          <div class="title flex items-center justify-between">
+            <h1 class="text-white text-bold text-3xl font-jockey-one">{{card.name | firstLetterUp}}</h1>
+            <span class="position text-white text-bold font-inter">#{{card?.id}}</span>
+          </div>
+          <div class="description flex flex-row justify-between">
+            <div class="habilites w-full flex flex-col justify-center gap-4">
+              <div class="type w-full text-white text-bold font-inter rounded-3xl bg-green-500 p-2 text-center" *ngIf="card.types[0]?.name" [ngClass]="card.types[0].name">{{card.types[0].name | firstLetterUp}}</div>
+              <div class="effect w-full text-white text-bold font-inter rounded-3xl bg-purple-900 p-2 text-center" *ngIf="card.types[1]?.name">{{card.types[1].name | firstLetterUp}}</div>
+            </div>
+            <div class="pokemon-image w-full flex justify-end items-center pl-4 ">
+              <img class="w-28 max-sm:w-full rounded-2xl" [src]="card?.image">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="more-cards flex w-full justify-center items-center p-4">
+      <button class="more-cards-button text-blue-400 font-inter font-normal text-2xl leading-[25.6px] border-b-2 cursor-pointer max-sm:tracking-wide  max-sm:text-xl" (click)="loadMore()">Ver mais</button>
+    </div>
+  </div>
 </div>

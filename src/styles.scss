@@ -4,7 +4,17 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Jockey+One&family=Pacifico&display=swap');
+@import './assets/styles/_mixins.scss';
 
 html,body{
   margin:0;
+  height: 100%;
+}
+
+.container{
+  // height: calc(100vh - 192px);
+
+  @include for-small{
+    // height: calc(100vh - 156px);
+  }
 }
