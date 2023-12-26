@@ -10,16 +10,18 @@ import { Component, HostListener, OnInit } from '@angular/core';
 export class LibraryComponent implements OnInit{
   cardsList:PokemonDetails[] | undefined;
   tiposPokemon: string[] = [];
-  startIndex = 0;
+  cardslimit = 200;
   cardsPerPage = 20;
-  cardslimit = 151;
+  startIndex = 0;
+  endIndex = 0;
 
   constructor(private resourceService:ResourceService){}
 
   ngOnInit(): void {
     this.resourceService.getPokemonsDetails(this.cardslimit).subscribe({
-      next:()=>{
-        this.loadCards()
+      next:(data)=>{
+        this.cardsList =  data
+        this.endIndex = this.cardsPerPage
       },
       error:(err)=>{
         console.log(err)
@@ -28,25 +30,8 @@ export class LibraryComponent implements OnInit{
 
   }
 
-  loadCards():void{
-    const endIndex = this.startIndex + this.cardsPerPage
-    this.cardsList = this.resourceService.getPokemonsLimited(this.startIndex, endIndex)
-    console.log(this.cardsList)
-  }
-
   loadMore(): void {
-    const totalCards = 151;
-
-    if (this.startIndex >= totalCards) {
-      return;
-    }
-
-    if (this.startIndex + this.cardsPerPage > totalCards) {
-      this.cardsPerPage = totalCards - this.startIndex;
-    }
-
-    this.loadCards();
-    this.startIndex += this.cardsPerPage;
+    this.endIndex += this.cardsPerPage
   }
 
 }

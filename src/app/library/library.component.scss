@@ -20,8 +20,32 @@
     background-color: #aacc00;
   }
 
-  &.Poison{
-    background-color: #363537;
+  &.poison{
+    background-color: #885f7e;
+  }
+
+  &.fairy{
+    background-color: #deb4c1;
+  }
+
+  &.ground{
+    background-color: #7f7f85;
+  }
+
+  &.fighting{
+    background-color: #713d30;
+  }
+
+  &.psychic{
+    background-color: #7a03ec;
+  }
+
+  &.rock{
+    background-color: #5e5d5f;
+  }
+
+  &.ghost{
+    background-color: #100f10;
   }
 
   .type{
@@ -51,8 +75,33 @@
       color: #000;
     }
 
-    &.Poison{
-      background-color: #363537;
+    &.poison{
+      background-color: #989799;
+    }
+
+    &.fairy{
+      background-color: #887176;
+    }
+
+    &.ground{
+      background-color: #5e5d5f;
+    }
+
+    &.fighting{
+      background-color: #5e5d5f;
+    }
+
+    &.psychic{
+      background-color: #5e5d5f;
+    }
+
+    &.rock{
+      background-color: #312e35;
+    }
+
+    &.ghost{
+      background-color: #f8f8f8;
+      color: #000;
     }
 
   }
