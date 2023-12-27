@@ -1,1 +1,74 @@
-<p>details works!</p>
+<div class="details-component" [ngClass]="typeClass">
+  <div class="container mx-auto max-sm:h-full">
+    <div class="content flex justify-center items-center py-10">
+      <div class="wrapper flex flex-col justify-center items-center gap-8 w-full p-6 rounded-xl max-sm:rounded-none" [ngClass]="typeClass" *ngIf="!error else message">
+        <div class="main-title flex flex-col items-center p-2">
+          <div class="title text-6xl max-md:text-4xl font-jockey-one px-2 md:text-center">{{pokemonData?.details.name | firstLetterUp}}</div>
+          <div class="description-text font-inter p-6 max-sm:text-center max-sm:p-3">
+            Bulbasaur is a Grass/Poison
+            type Pokémon introduced in Generation 1.
+            Bulbasaur is a small, mainly turquoise
+            amphibian Pokémon with red eyes and a green
+            bulb on its back.</div>
+          </div>
+
+          <div class="pokedex-status flex w-4/5 flex-row max-sm:flex-col max-sm:items-center ">
+            <div class="pokemon-image w-1/2 px-4 max-sm:p-5 max-sm:w-4/5 flex justify-center ">
+              <img class="object-contain" [src]="pokemonData?.details.sprites.other['official-artwork'].front_default">
+            </div>
+
+            <div class="pokemon-data w-1/2 max-sm:w-full h-full  flex flex-col items-center justify-center  text-center text-2xl max-sm:text-xl font-bold font-inter border-2 rounded-lg">
+              <div class="title border-b-2 w-full">Pokédex data</div>
+              <div class="section-type w-full flex flex-row items-center max-md:flex-col py-5 border-b-2 max-md:p-5">
+                <p class="corner px-2 text-xl">Type: </p>
+                <div class="types px-3 max-md:px-0 max-sm:px-2 max-md:p-5" *ngFor="let type of types">
+                  <div class="type px-6 font-inter text-xl rounded-lg p-1 " [ngClass]="type">{{type}}</div>
+                </div>
+              </div>
+              <div class="section-type w-full flex flex-row items-center max-md:flex-col py-5 border-b-2 max-md:p-5">
+                <p class="corner px-2 text-xl">Species: </p>
+                <div class="types px-2 max-md:px-0 max-sm:px-2 max-md:p-5" *ngFor="let specie of pokemonSpecie?.egg_groups">
+                  <div class="type px-2 font-inter text-xl rounded-lg p-1 bg-white"  [ngClass]="specie.name">{{specie?.name}}</div>
+                </div>
+              </div>
+              <div class="section-type w-full flex flex-row items-center max-md:flex-col py-5 max-md:p-5">
+                <p class="corner px-2 text-xl">base experience: </p>
+                <div class="bases-exp px-3 max-md:px-0 max-sm:px-2 max-md:p-5">
+                  <div class="base-exp px-6 font-inter text-xl rounded-lg p-1 bg-white text-yellow-500">{{pokemonData?.details.base_experience}}</div>
+                </div>
+              </div>
+              <div class="section-type w-full flex flex-row items-center max-md:flex-col py-5 max-md:p-5">
+                <p class="corner px-2 text-xl">habitat: </p>
+                <div class="habitats px-3 max-md:px-0 max-sm:px-2 max-md:p-5">
+                  <div class="habitat px-6 font-inter text-xl rounded-lg p-1 bg-white text-yellow-500" [ngClass]="pokemonSpecie?.habitat?.name">{{pokemonSpecie?.habitat?.name}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="base-status pokemon-data w-1/2 max-sm:w-full h-full  flex flex-col items-center justify-center  text-center text-2xl max-sm:text-xl font-bold font-inter border-2 rounded-lg">
+            <div class="title border-b-2 w-full">Base Status</div>
+            <div class="table w-full">
+              <table class="w-full text-white text-lg">
+                <tbody>
+                  <tr *ngFor="let stat of pokemonBaseStats">
+                    <td class="py-2 px-4 border-b ">{{ stat.stat.name | uppercase }}</td>
+                    <td class="py-2 px-4 border-b">{{ stat.base_stat }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="back-library flex w-full justify-center items-center p-6">
+            <button class="back-library-button text-white p-3 font-inter
+              font-normal text-1xl leading-[25.6px] cursor-pointer max-sm:tracking-wide
+              max-sm:text-xl no-underline bg-[#0070e0] rounded-lg hover:bg-blue-800"
+              routerLink="/library" >Voltar para Pokedex</button>
+          </div>
+      </div>
+      <ng-template #message>
+        <p class="text-base font-inter">{{this.error}}</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

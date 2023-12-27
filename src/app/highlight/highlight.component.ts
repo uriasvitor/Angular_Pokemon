@@ -1,4 +1,5 @@
-import { PokemonDetails, ResourceService } from './../services/Resource.service';
+import { PokemonsDetails } from '../models/pokemonsDetails.model';
+import { PokemonService } from '../services/pokemon.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,16 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./highlight.component.scss']
 })
 export class HighlightComponent implements OnInit{
-  highlightPokemon:PokemonDetails[] | undefined;
+  highlightPokemon:PokemonsDetails[] | undefined;
   hightLightLimit:number = 3
-  constructor(public resourceService:ResourceService){}
+  constructor(public pokemonService:PokemonService){}
 
   ngOnInit(): void {
     this.getHighlightsPokemons()
   }
 
   getHighlightsPokemons(){
-    this.resourceService.getPokemonsDetails(this.hightLightLimit).subscribe({
+    this.pokemonService.getPokemonsDetails(this.hightLightLimit).subscribe({
       next:(res)=>{
         this.highlightPokemon = res
       }

@@ -1,37 +1,38 @@
-import { PokemonDetails } from '../models/pokemonDetails.model';
-import { ResourceService } from './../services/Resource.service';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { PokemonService } from './../services/pokemon.service';
+import { PokemonsDetails } from '../models/pokemonsDetails.model';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-library',
   templateUrl: './library.component.html',
   styleUrls: ['./library.component.scss']
 })
-export class LibraryComponent implements OnInit{
-  cardsList:PokemonDetails[] | undefined;
+export class LibraryComponent implements OnInit {
+  cardsList: PokemonsDetails[] | undefined;
   tiposPokemon: string[] = [];
   cardslimit = 200;
   cardsPerPage = 20;
   startIndex = 0;
   endIndex = 0;
 
-  constructor(private resourceService:ResourceService){}
+  constructor(private pokemonService: PokemonService) {}
 
   ngOnInit(): void {
-    this.resourceService.getPokemonsDetails(this.cardslimit).subscribe({
-      next:(data)=>{
-        this.cardsList =  data
-        this.endIndex = this.cardsPerPage
-      },
-      error:(err)=>{
-        console.log(err)
-      }
-    })
 
+    if (!this.cardsList) {
+      this.pokemonService.getPokemonsDetails(this.cardslimit).subscribe({
+        next: (data) => {
+          this.cardsList = data;
+          this.endIndex = this.cardsPerPage;
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+    }
   }
 
   loadMore(): void {
-    this.endIndex += this.cardsPerPage
+    this.endIndex += this.cardsPerPage;
   }
-
 }

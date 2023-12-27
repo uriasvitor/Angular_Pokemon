@@ -1,0 +1,131 @@
+.wrapper{
+  &.water{
+    background-color: #0096c7;
+  }
+
+  &.fire{
+    background-color: #c35d4c;
+  }
+
+  &.grass{
+    background-color: #71ad7d;
+
+  }
+
+  &.normal{
+    background-color: #ffd000;
+  }
+
+  &.bug{
+    background-color: #aacc00;
+  }
+
+  &.poison{
+    background-color: #885f7e;
+  }
+
+  &.fairy{
+    background-color: #deb4c1;
+  }
+
+  &.ground{
+    background-color: #7f7f85;
+  }
+
+  &.fighting{
+    background-color: #713d30;
+  }
+
+  &.psychic{
+    background-color: #7a03ec;
+  }
+
+  &.rock{
+    background-color: #5e5d5f;
+  }
+
+  &.ghost{
+    background-color: #100f10;
+  }
+
+  &.flying{
+    background-color: #0060a0;
+  }
+
+  &.grass,&.fire,&.water,&.normal,&.poison,&.psychic{
+    .description-text,.title,.corner{
+      color: #ffff;
+    }
+  }
+
+  .type{
+
+    &.water{
+      background-color: #ade8f4;
+      color: #0096c7;
+    }
+
+    &.fire{
+      background-color: #fadf8e;
+      color: #c35d4c;
+    }
+
+    &.grass{
+      background-color: #22c55e;
+      color: #fff;
+    }
+
+    &.normal{
+      background-color: #fff;
+      color: #000;
+    }
+
+    &.bug{
+      background-color: #dddf00;
+      color: #000;
+    }
+
+    &.poison{
+      background-color: #853872;
+      color: #ffff;
+    }
+
+    &.fairy{
+      background-color: #887176;
+    }
+
+    &.ground{
+      background-color: #5e5d5f;
+    }
+
+    &.fighting{
+      background-color: #5e5d5f;
+    }
+
+    &.psychic{
+      background-color: #ea00ff;
+      color: #fff;
+    }
+
+    &.rock{
+      background-color: #312e35;
+    }
+
+    &.ghost{
+      background-color: #f8f8f8;
+      color: #000;
+    }
+
+    &.flying{
+      background-color: #00b7ff;
+      color: #fff;
+    }
+
+  }
+
+  .grassland{
+    color: #fff;
+    background:#22c55e;
+  }
+}
+
