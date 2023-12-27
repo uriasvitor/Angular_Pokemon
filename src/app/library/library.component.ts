@@ -22,7 +22,13 @@ export class LibraryComponent implements OnInit {
   ngOnInit(): void {
     if (this.pokemonService.allPokemons.length > 0) {
       this.cardsList = this.pokemonService.allPokemons;
-      this.endIndex = this.sharedDataService.endIndex;
+
+      if(this.sharedDataService.endIndex){
+        this.endIndex = this.sharedDataService.endIndex;
+      }else{
+        this.endIndex = this.cardsPerPage
+      }
+
       this.inLoading = false;
     } else {
       this.pokemonService.getPokemonsLibrary(this.cardslimit).subscribe({
