@@ -16,10 +16,18 @@ export class LibraryComponent implements OnInit {
   startIndex = 0;
   endIndex = 0;
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor(private pokemonService: PokemonService) {
+    this.cardsList = this.pokemonService.allPokemons
+    console.log(this.pokemonService.allPokemons)
+    console.log(this.cardsList)
+  }
 
   ngOnInit(): void {
-    if (!this.cardsList) {
+    if (this.pokemonService.allPokemons.length > 0) {
+      this.cardsList = this.pokemonService.allPokemons;
+      this.endIndex = this.cardsPerPage;
+      this.inLoading = false;
+    } else {
       this.pokemonService.getPokemonsDetails(this.cardslimit).subscribe({
         next: (data) => {
           this.cardsList = data;
