@@ -17,7 +17,7 @@ export class HighlightComponent implements OnInit{
   }
 
   getHighlightsPokemons(){
-    this.pokemonService.getPokemonsDetails(this.hightLightLimit).subscribe({
+    this.pokemonService.getHightLight(this.hightLightLimit).subscribe({
       next:(res)=>{
         this.highlightPokemon = res
       }

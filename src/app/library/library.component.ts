@@ -1,3 +1,4 @@
+import { SharedDataService } from './../services/sharedDataService';
 import { PokemonService } from './../services/pokemon.service';
 import { PokemonsDetails } from '../models/pokemonsDetails.model';
 import { Component, OnInit } from '@angular/core';
@@ -16,19 +17,15 @@ export class LibraryComponent implements OnInit {
   startIndex = 0;
   endIndex = 0;
 
-  constructor(private pokemonService: PokemonService) {
-    this.cardsList = this.pokemonService.allPokemons
-    console.log(this.pokemonService.allPokemons)
-    console.log(this.cardsList)
-  }
+  constructor(private pokemonService: PokemonService, private sharedDataService:SharedDataService) {}
 
   ngOnInit(): void {
     if (this.pokemonService.allPokemons.length > 0) {
       this.cardsList = this.pokemonService.allPokemons;
-      this.endIndex = this.cardsPerPage;
+      this.endIndex = this.sharedDataService.endIndex;
       this.inLoading = false;
     } else {
-      this.pokemonService.getPokemonsDetails(this.cardslimit).subscribe({
+      this.pokemonService.getPokemonsLibrary(this.cardslimit).subscribe({
         next: (data) => {
           this.cardsList = data;
           this.endIndex = this.cardsPerPage;
@@ -43,5 +40,6 @@ export class LibraryComponent implements OnInit {
 
   loadMore(): void {
     this.endIndex += this.cardsPerPage;
+    this.sharedDataService.endIndex = this.endIndex;
   }
 }
