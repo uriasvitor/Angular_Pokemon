@@ -3,15 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, forkJoin, map, mergeMap, tap } from "rxjs";
 import { API_URL, EVOLUTION_CHAIN_API_URL, SPECIES_API_URL } from "./endpoints/pokemon-endpoints";
-
-export interface PokemonList {
-  name: string;
-  url: string;
-}
-
-export interface PokemonSpecies {
-  flavor_text_entries: { flavor_text: string; language: { name: string } }[];
-}
+import { PokemonList, PokemonSpecies } from "../models/pokemonModels.model";
 
 @Injectable({
   providedIn:'root'
@@ -25,24 +17,23 @@ export class PokemonService{
       mergeMap((res: any) => {
         const pokemonRequests: Observable<PokemonsDetails>[] = res.results.map(
           (pokemon: PokemonList) =>
-            this.http.get<PokemonsDetails>(pokemon.url).pipe(
-              mergeMap((details: any) =>
-                this.http.get<PokemonSpecies>(SPECIES_API_URL + pokemon.name).pipe(
-                  map((species: PokemonSpecies) => ({
-                    id: details.id,
-                    name: details.name,
-                    image: details.sprites.other['official-artwork'].front_default,
-                    flavorText: species.flavor_text_entries.find(
-                      (entry) => entry.language.name === 'en'
-                    )?.flavor_text,
-                    types: details.types.map((type: any) => ({
-                      slot: type.slot,
-                      name: type.type.name,
-                      url: type.type.url,
-                    })),
-                  } as PokemonsDetails))
-                )
-              )
+            forkJoin({
+              details: this.http.get<PokemonsDetails>(pokemon.url),
+              species: this.http.get<PokemonSpecies>(SPECIES_API_URL + pokemon.name)
+            }).pipe(
+              map((data: any) => ({
+                id: data.details.id,
+                name: data.details.name,
+                image: data.details.sprites.other['official-artwork'].front_default,
+                flavorText: data.species.flavor_text_entries.find(
+                  (entry: any) => entry.language.name === 'en'
+                )?.flavor_text,
+                types: data.details.types.map((type: any) => ({
+                  slot: type.slot,
+                  name: type.type.name,
+                  url: type.type.url,
+                })),
+              } as PokemonsDetails))
             )
         );
         return forkJoin(pokemonRequests).pipe(

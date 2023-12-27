@@ -10,20 +10,21 @@ import { Component, OnInit } from '@angular/core';
 export class LibraryComponent implements OnInit {
   cardsList: PokemonsDetails[] | undefined;
   tiposPokemon: string[] = [];
-  cardslimit = 200;
+  inLoading:boolean = true;
   cardsPerPage = 20;
+  cardslimit = 200;
   startIndex = 0;
   endIndex = 0;
 
   constructor(private pokemonService: PokemonService) {}
 
   ngOnInit(): void {
-
     if (!this.cardsList) {
       this.pokemonService.getPokemonsDetails(this.cardslimit).subscribe({
         next: (data) => {
           this.cardsList = data;
           this.endIndex = this.cardsPerPage;
+          this.inLoading = false;
         },
         error: (err) => {
           console.log(err);

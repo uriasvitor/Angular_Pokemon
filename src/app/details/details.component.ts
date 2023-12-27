@@ -14,6 +14,7 @@ export class DetailsComponent implements OnInit{
   pokemonAbilities?: any;
   pokemonBaseStats?: any;
   pokemonId?:string;
+  flavorText?:string;
   typeClass?:string;
   error?:string;
   types?:any;
@@ -49,6 +50,8 @@ export class DetailsComponent implements OnInit{
       this.pokemonBaseStats = this.pokemonData.details.stats.map((stats:any)=> stats);
       this.typeClass = this.types[0];
       this.pokemonSpecie = this.pokemonData.specie;
+      const flavorTexts = this.pokemonData.specie.flavor_text_entries.map((flavor:any)=> flavor.flavor_text)
+      this.flavorText = flavorTexts[0]
     });
   }
 }

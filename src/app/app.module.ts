@@ -7,12 +7,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { HighlightComponent } from './highlight/highlight.component';
-import {  HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { ChannelComponent } from './channel/channel.component';
 import { LibraryComponent } from './library/library.component';
 import { DetailsComponent } from './details/details.component';
-import { ShopComponent } from './shop/shop.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +22,7 @@ import { ShopComponent } from './shop/shop.component';
     HighlightComponent,
     ChannelComponent,
     LibraryComponent,
-    DetailsComponent,
-    ShopComponent,
-
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

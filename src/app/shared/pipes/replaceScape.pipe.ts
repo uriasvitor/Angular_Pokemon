@@ -4,9 +4,9 @@ import { Pipe, PipeTransform } from "@angular/core";
   name:'replaceScape'
 })
 export class replaceScapePipe implements PipeTransform{
-  transform(value: string) {
-    const transformedValue = value
-    return transformedValue.replaceAll("\f"," ")
+  transform(value: string): string {
+    const transformedValue = value.replace(/\f/g, " ");
+    return transformedValue;
   }
 
 }

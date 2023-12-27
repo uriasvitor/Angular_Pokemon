@@ -1,20 +1,16 @@
 <div class="details-component" [ngClass]="typeClass">
   <div class="container mx-auto max-sm:h-full">
-    <div class="content flex justify-center items-center py-10">
+    <div class="content flex justify-center items-center py-10 max-sm:pt-0">
       <div class="wrapper flex flex-col justify-center items-center gap-8 w-full p-6 rounded-xl max-sm:rounded-none" [ngClass]="typeClass" *ngIf="!error else message">
         <div class="main-title flex flex-col items-center p-2">
           <div class="title text-6xl max-md:text-4xl font-jockey-one px-2 md:text-center">{{pokemonData?.details.name | firstLetterUp}}</div>
-          <div class="description-text font-inter p-6 max-sm:text-center max-sm:p-3">
-            Bulbasaur is a Grass/Poison
-            type Pokémon introduced in Generation 1.
-            Bulbasaur is a small, mainly turquoise
-            amphibian Pokémon with red eyes and a green
-            bulb on its back.</div>
+          <div class="description-text font-inter p-6 max-sm:text-center max-sm:p-3" >
+            {{this.flavorText}}</div>
           </div>
 
           <div class="pokedex-status flex w-4/5 flex-row max-sm:flex-col max-sm:items-center ">
             <div class="pokemon-image w-1/2 px-4 max-sm:p-5 max-sm:w-4/5 flex justify-center ">
-              <img class="object-contain" [src]="pokemonData?.details.sprites.other['official-artwork'].front_default">
+              <img class="object-contain" [src]="pokemonData?.details?.sprites?.other['official-artwork'].front_default">
             </div>
 
             <div class="pokemon-data w-1/2 max-sm:w-full h-full  flex flex-col items-center justify-center  text-center text-2xl max-sm:text-xl font-bold font-inter border-2 rounded-lg">
