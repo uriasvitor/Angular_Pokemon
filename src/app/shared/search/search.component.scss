@@ -1,0 +1,11 @@
+.search{
+  appearance: none;
+  border-radius: 20px;
+  color: #9ca3af;
+
+  &:focus{
+    border: 0;
+    text-decoration: none;
+    outline: none;
+  }
+}

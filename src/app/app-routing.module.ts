@@ -22,6 +22,10 @@ const routes: Routes = [
     path:'details/:id',
     component:DetailsComponent
   },
+  {
+    path:'shop',
+    component:DetailsComponent
+  }
 ];
 
 @NgModule({

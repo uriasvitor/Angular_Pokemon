@@ -2,19 +2,22 @@ import { NgModule } from "@angular/core";
 import { firstLetterCasePipe } from "./pipes/firstLetterCase.pipe";
 import { replaceScapePipe } from "./pipes/replaceScape.pipe";
 import { LoadingComponent } from "./loading/loading.component";
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     firstLetterCasePipe,
     replaceScapePipe,
-    LoadingComponent
+    LoadingComponent,
+    SearchComponent
   ],
   imports: [
   ],
   exports:[
     firstLetterCasePipe,
     replaceScapePipe,
-    LoadingComponent
+    LoadingComponent,
+    SearchComponent
   ]
 })
 

@@ -30,6 +30,7 @@ export class LibraryComponent implements OnInit {
       }
 
       this.inLoading = false;
+
     } else {
       this.pokemonService.getPokemonsLibrary(this.cardslimit).subscribe({
         next: (data) => {

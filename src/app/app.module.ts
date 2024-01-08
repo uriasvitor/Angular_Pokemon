@@ -12,6 +12,7 @@ import { SharedModule } from './shared/shared.module';
 import { ChannelComponent } from './channel/channel.component';
 import { LibraryComponent } from './library/library.component';
 import { DetailsComponent } from './details/details.component';
+import { ShopComponent } from './shop/shop.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DetailsComponent } from './details/details.component';
     HighlightComponent,
     ChannelComponent,
     LibraryComponent,
-    DetailsComponent
+    DetailsComponent,
+    ShopComponent
   ],
   imports: [
     BrowserModule,
