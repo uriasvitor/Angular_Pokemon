@@ -1,9 +1,10 @@
 <div class="pokemon-card bg-[#fffc11]">
   <div class="container mx-auto h-full">
-    <app-search></app-search>
     <div class="loading h-screen flex justify-center items-center z-0" *ngIf="this.inLoading">
       <app-loading></app-loading>
     </div>
+
+    <app-search (sendFiltredPokemons)="handleFiltredPokemons($event)" [libraryList]="cachedCardList" *ngIf="!this.inLoading"></app-search>
 
     <div class="content grid grid-cols-4 gap-10 p-8 justify-items-center 2x2:grid-cols-5 max-2xl:grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-2 max-md:gap-14 max-sm:grid-cols-1 max-sm:justify-center" *ngIf="!this.inLoading">
       <div class="card w-80 max-sm:w-full p-4 rounded-2xl bg-yellow-400 hover:bg-yellow-500 shadow-md" *ngFor="let card of cardsList?.slice(startIndex, endIndex); let i = index" [ngClass]="card.types[0].name">

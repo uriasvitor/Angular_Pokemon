@@ -1,7 +1,7 @@
 import { SharedDataService } from './../services/sharedDataService';
 import { PokemonService } from './../services/pokemon.service';
 import { PokemonsDetails } from '../models/pokemonsDetails.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-library',
@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LibraryComponent implements OnInit {
   cardsList: PokemonsDetails[] | undefined;
-  tiposPokemon: string[] = [];
+  cachedCardList: PokemonsDetails[] | undefined;
   inLoading:boolean = true;
   cardsPerPage = 20;
   cardslimit = 200;
@@ -22,6 +22,7 @@ export class LibraryComponent implements OnInit {
   ngOnInit(): void {
     if (this.pokemonService.allPokemons.length > 0) {
       this.cardsList = this.pokemonService.allPokemons;
+      this.cachedCardList = this.cardsList;
 
       if(this.sharedDataService.endIndex){
         this.endIndex = this.sharedDataService.endIndex;
@@ -35,6 +36,7 @@ export class LibraryComponent implements OnInit {
       this.pokemonService.getPokemonsLibrary(this.cardslimit).subscribe({
         next: (data) => {
           this.cardsList = data;
+          this.cachedCardList = this.cardsList;
           this.endIndex = this.cardsPerPage;
           this.inLoading = false;
         },
@@ -47,6 +49,17 @@ export class LibraryComponent implements OnInit {
 
   loadMore(): void {
     this.endIndex += this.cardsPerPage;
+    this.sharedDataService.endIndex = this.endIndex;
+  }
+
+  handleFiltredPokemons(filtredCards:[]) {
+    if(filtredCards.length < 1 ){
+      this.cardsList = this.cachedCardList;
+      return
+    }
+
+    this.cardsList = filtredCards;
+    this.endIndex = this.cardsPerPage;
     this.sharedDataService.endIndex = this.endIndex;
   }
 }

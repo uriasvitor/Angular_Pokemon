@@ -1,8 +1,8 @@
 <div class="container w-full h-24 flex items-center justify-center relative">
-  <div class="content p-5 fixed w-1/2">
+  <div class="content p-5 fixed w-1/2 max-sm:w-4/5">
     <div class="searchbar flex border-2 rounded-2xl items-center bg-white">
       <label class="p-2 px-5 border-r-2" for="search"> <img  class="w-6" src="../../../assets/icon/search.png" alt="" srcset=""></label>
-      <input class="search w-11/12 h-full p-2 font-jockey-one focus:border-none text-2xl text-black"
+      <input class="search w-11/12 h-full p-2 font-jockey-one focus:border-none text-2xl text-black max-sm:text-lg"
         type="text"
         enterkeyhint="go"
         autocapitalize="off"
@@ -10,6 +10,8 @@
         placeholder="Digite o nome do pokémon"
         name="search"
         id="search"
+        #filter
+        (keyup)="filtredResult(filter.value)"
         >
     </div>
   </div>
