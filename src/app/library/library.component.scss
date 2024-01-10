@@ -1,3 +1,33 @@
+@import '../../styles.scss';
+
+.pokemon-card{
+  height: calc(100vh - 192px);
+
+  @include for-small{
+    height: calc(100vh - 155px);
+
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgb(61, 61, 61);
+      border-radius: 10px;
+    }
+
+  }
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(61, 61, 61);
+    border-radius: 10px;
+  }
+
+}
+
 .card{
   &.water{
     background-color: #0096c7;
