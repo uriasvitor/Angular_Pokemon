@@ -1,7 +1,7 @@
 import { SharedDataService } from './../services/sharedDataService';
 import { PokemonService } from './../services/pokemon.service';
 import { PokemonsDetails } from '../models/pokemonsDetails.model';
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-library',
@@ -11,7 +11,8 @@ import { Component, DoCheck, OnInit } from '@angular/core';
 export class LibraryComponent implements OnInit {
   cardsList: PokemonsDetails[] | undefined;
   cachedCardList: PokemonsDetails[] | undefined;
-  inLoading:boolean = true;
+  seeMore = true;
+  inLoading = true;
   cardsPerPage = 20;
   cardslimit = 200;
   startIndex = 0;
@@ -53,10 +54,14 @@ export class LibraryComponent implements OnInit {
   }
 
   handleFiltredPokemons(filtredCards:[]) {
+    console.log(filtredCards)
     if(filtredCards.length < 1 ){
       this.cardsList = this.cachedCardList;
+      this.seeMore = true;
       return
     }
+
+    this.seeMore = filtredCards.length <= 9 ? false : true;
 
     this.cardsList = filtredCards;
     this.endIndex = this.cardsPerPage;

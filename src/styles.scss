@@ -11,10 +11,7 @@ html,body{
   height: 100%;
 }
 
-.container{
-  // height: calc(100vh - 192px);
 
-  @include for-small{
-    // height: calc(100vh - 156px);
-  }
+.hideOutlet{
+  display: none;
 }

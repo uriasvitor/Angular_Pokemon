@@ -1,6 +1,6 @@
 <div class="pokemon-card bg-[#fffc11] overflow-y-scroll">
   <div class="container mx-auto h-full">
-    <div class="loading h-screen flex justify-center items-center z-0" *ngIf="this.inLoading">
+    <div class="loading h-full flex justify-center items-center z-0" *ngIf="this.inLoading">
       <app-loading></app-loading>
     </div>
 
@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-    <div class="more-cards flex w-full justify-center items-center p-6" *ngIf="!(this.endIndex == this.cardslimit)">
+    <div class="more-cards flex w-full justify-center items-center p-6" *ngIf="!(this.endIndex == this.cardslimit) && seeMore">
       <button class="more-cards-button text-blue-400 font-inter font-normal text-2xl leading-[25.6px] border-b-2 cursor-pointer max-sm:tracking-wide  max-sm:text-xl underline" (click)="loadMore()">Ver mais</button>
     </div>
   </div>

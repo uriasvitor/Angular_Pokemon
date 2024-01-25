@@ -17,7 +17,6 @@ export class SearchComponent implements OnInit{
 
   filtredResult(text:string){
     if(!text || text.trim() === ''){
-      console.log(`libraryInput`, this.libraryList)
       this.filtredPokemons = this.libraryList;
       this.sendFiltredPokemons.emit(this.filtredPokemons)
       return

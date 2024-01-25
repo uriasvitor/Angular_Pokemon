@@ -7,7 +7,7 @@
     <div class="flex gap-10 items-center">
 
       <button (click)="toggleMobileMenu()" class="sm:hidden focus:outline-none">
-        <ng-container *ngIf="!isMobileMenuOpen; else closeIcon">
+        <ng-container *ngIf="!menuIsOpen; else closeIcon">
           <img src="../../assets/icon/menu-icon.png" alt="menu">
         </ng-container>
         <ng-template #closeIcon>
